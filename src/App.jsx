@@ -498,16 +498,27 @@ const styles = `
   }
 `;
 
-const CATEGORIES = [
+const categories = [
   "Electronics",
-  "Clothing",
+  "Computers&Accessories",
   "Home&Kitchen",
-  "Books",
-  "Toys",
+  "Health&PersonalCare",
   "Sports",
+  "Clothing",
   "Beauty",
-  "Automotive",
-  "Grocery",
+];
+
+const subCategories = [
+  "Headphones,Earbuds&Accessories",
+  "Accessories&Peripherals",
+  "MobileAccessories",
+  "Kitchen&HomeAppliances",
+  "HomeMedicalSupplies&Equipment",
+  "OralCare",
+  "ExerciseAndFitness",
+  "SportsFootwear",
+  "Skincare",
+  "Televisions",
 ];
 
 // ─── PREDICT TAB ───────────────────────────────────────────────────────────────
@@ -654,18 +665,19 @@ function PredictTab() {
         <div className="field-row">
           <div className="field">
             <label>Main Category</label>
-            <input
-              value={form.main_category}
-              onChange={set("main_category")}
-            ></input>
+            <select value={form.main_category} onChange={set("main_category")}>
+              {categories.map((c) => (
+                <option key={c}>{c}</option>
+              ))}
+            </select>
           </div>
           <div className="field">
             <label>Sub Category</label>
-            <input
-              value={form.sub_category}
-              onChange={set("sub_category")}
-              placeholder="Headphones, Earbuds..."
-            />
+            <select value={form.sub_category} onChange={set("sub_category")}>
+              {subCategories.map((c) => (
+                <option key={c}>{c}</option>
+              ))}
+            </select>{" "}
           </div>
         </div>
         <div className="field">
