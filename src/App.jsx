@@ -752,17 +752,6 @@ function PredictTab() {
 
             <hr className="divider" />
             <p className="summary-text">{result.summary}</p>
-
-            {result.action_items?.length > 0 && (
-              <>
-                <div className="actions-title">Recommended Actions</div>
-                {result.action_items.map((a, i) => (
-                  <div className="action-item" key={i}>
-                    {a}
-                  </div>
-                ))}
-              </>
-            )}
           </div>
         ) : (
           <div className="result-panel predict">
